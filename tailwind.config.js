@@ -2,6 +2,7 @@ module.exports = {
     content: [
         './app/Resources/themes/**/*.html.twig',
         './app/Resources/css/**/*.css',
+        './app/Resources/public/js/app.js',
     ],
   darkMode: 'media',
     theme: {

@@ -9,6 +9,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Librarian\Builder\StaticBuilder;
 use Librarian\Provider\LibrarianServiceProvider;
+use Librarian\Provider\RouterServiceProvider;
 use Librarian\Provider\TwigServiceProvider;
 use Minicli\App;
 use Librarian\Provider\ContentServiceProvider;
@@ -30,6 +31,7 @@ $app->addService('content', new ContentServiceProvider());
 $app->addService('twig', new TwigServiceProvider());
 $app->addService('librarian', new LibrarianServiceProvider());
 $app->addService('builder', new StaticBuilder());
+$app->addService('router', new RouterServiceProvider());
 
 $app->librarian->boot();
 
