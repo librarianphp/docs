@@ -23,7 +23,6 @@ Liquid tags supported at the moment:
 |-----|---------|-------------|
 | `audio` | `{% audio path_to_mp3.mp3 %}` | embeds mp3 audio |
 | `video` | `{% video path_to_mp4.mp4 %}` | embeds mp4 video |
-| `twitter` | `{% twitter tweet_id %}` | embeds a Tweet |
 | `youtube` | `{% youtube video_ID %}` | embeds a YouTube video |
 | `github` | `{% github file_url %}` | embeds File from GitHub (Gists aren't supported at the moment) |
 
@@ -35,7 +34,7 @@ Librarian can also serve a dynamic website from its `/web` directory, and that w
 - [Composer](https://getcomposer.org): for installing the PHP dependencies.
 - [NPM](https://docs.npmjs.com/cli/v7): recommended due to Tailwind, but only required if you're modifying templates.
 
-Librarian uses [Tailwind css](https://tailwindcss.com/docs) for its front-end, but the pre-built `app.css` to facilitate usage.
+Librarian uses [Tailwind css](https://tailwindcss.com/docs) for its front-end, but the pre-built `app.css` is included to facilitate usage.
 You are only required to run `npm` if you make significant changes to the layout, or if you want to include additional CSS in the assets build pipeline.
 
 
