@@ -9,10 +9,10 @@ Librarian used to have a built-in command to import posts from a given DEV user.
 
 To enable this feature, you'll follow the process to add an external command and register an additional service provider within Librarian. This process basically consists of the following:
 
-1. Require the external command with Composer,
-2.Add a line to the `config/minicli.php` config file including the command in the `app_path` list,
-2. Register any additional service providers within the main application file (the `librarian` entrypoint script), and
-3. Add or update required configuration options within your `config.php` file.
+1. Require the external command with Composer;
+2. Add a line to the `config/minicli.php` config file including the command in the `app_path` list;
+3. Register any additional service providers within the main application file (the `librarian` entrypoint script), and
+4. Add or update required configuration options within your `config.php` file.
 
 ## 1. Requiring the import command
 

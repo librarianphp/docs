@@ -1,7 +1,7 @@
 ---
 title: Librarian Liquid Tags
 published: true
-description: 
+description: How to use Librarian Liquid Tags
 ---
 
 Librarian uses liquid tags to offer extended and customizable embeds in markdown, inspired by DEV.to. This is implemented as a standalone project that at [librarianphp/parsed](https://github.com/librarianphp/parsed).
