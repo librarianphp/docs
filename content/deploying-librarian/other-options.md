@@ -1,8 +1,55 @@
 ---
-title: Deploying Librarian with Ansible
+title: Other Deployment Options
 published: true
-description: In this page you can find details on how to automate setting up and deploying a Librarian application to a remote Ubuntu server with Ansible.
+description: Other ways to deploy Librarian
 ---
+
+Since version 4, Librarian is a static site builder, which means you don't need a web server with PHP installed in order to host your site - you only need PHP to build it.
+
+However, the legacy way of serving pages with Librarian is still possible if your site relies on dynamic functionalities.
+
+## Deploying Librarian with Nginx + PHP-FPM
+To deploy Librarian with Nginx, you'll need to also install PHP-FPM on the server (MySQL not needed!). Check out this [LEMP tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04) for details on how to get these installed - you can skip the MySQL step(s).
+
+This is an example of functional Nginx configuration to host a Librarian website with PHP-FPM (PHP 7.4):
+
+```
+server {
+    listen 80;
+    server_name domain_name www.domain_name;
+    root /var/www/librarian-website;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.html index.htm index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+```
+
+## Deploying Librarian with Ansible
 
 Because Librarian uses a relatively simple stack, and is a stateless application, automating its deployment with a tool like Ansible is not very difficult.
 
@@ -12,7 +59,7 @@ The setup included in that repository is the same used by the [Librarian documen
 For more information about Ansible, you can check [this reference guide](https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide).
 
 ## Downloading the Files
-You can download the files in [this repository](https://github.com/librarianphp/librarian-ansible) and save them in the root folder of your Librarian application. 
+You can download the files in [this repository](https://github.com/librarianphp/librarian-ansible) and save them in the root folder of your Librarian application.
 
 ```shell
 cd ~/my-librarian-app
