@@ -15,13 +15,3 @@ function config_default(string $config_dir): array
 
     return $config;
 }
-
-function load_config(): array
-{
-    return array_merge(config_default(__DIR__ . '/../config'), include __DIR__ . '/../config.php');
-}
-
-function envconfig(string $key, string $defaultValue = null): string|null
-{
-    return getenv($key) ? getenv($key) : $defaultValue;
-}

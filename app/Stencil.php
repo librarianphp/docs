@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 class Stencil
@@ -16,7 +18,7 @@ class Stencil
         $template = file_get_contents($this->stencil_dir . '/' . $template_name . '.tpl');
 
         foreach ($variables as $variable_name => $variable_value) {
-            $template = str_replace("{{ $variable_name }}", $variable_value, $template);
+            $template = str_replace("{{ {$variable_name} }}", $variable_value, $template);
         }
 
         return $template;

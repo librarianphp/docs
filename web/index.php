@@ -1,22 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 require __DIR__ . '/../vendor/autoload.php';
 
-use Minicli\App;
-use Librarian\Provider\TwigServiceProvider;
-use Librarian\Provider\RouterServiceProvider;
 use Librarian\Exception\RouteNotFoundException;
-use Librarian\Provider\ContentServiceProvider;
-use Librarian\Provider\LibrarianServiceProvider;
+use Librarian\Provider\RouterServiceProvider;
 use Librarian\Response;
+use Minicli\App;
 
-$app = new App(load_config());
-
-$app->addService('twig', new TwigServiceProvider());
+$app = new App();
 $app->addService('router', new RouterServiceProvider());
-$app->addService('content', new ContentServiceProvider());
-$app->addService('librarian', new LibrarianServiceProvider());
-
 $app->librarian->boot();
 
 try {
