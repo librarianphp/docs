@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     /****************************************************************************
      * Minicli Settings
@@ -12,16 +14,16 @@ return [
         '@librarianphp/command-create',
         '@librarianphp/command-cache',
         '@librarianphp/command-web',
-        '@librarianphp/command-build'
+        '@librarianphp/command-build',
     ],
     'theme' => 'unicorn',
-    'templates_path' => __DIR__ . '/../app/Resources/themes/default',
+    'templates_path' => __DIR__ . '/../app/Resources/themes/docs',
     'data_path' => __DIR__ . '/../content',
     'cache_path' => __DIR__ . '/../var/cache',
     'stencil_dir' => __DIR__ . '/../app/Resources/stencil',
     'stencil_locations' => [
-        'post' => __DIR__ . '/../content/_p',
-        'blog' => __DIR__ . '/../content/blog'
+        'post' => __DIR__ . '/../content/post',
+        'page' => __DIR__ . '/../content/page',
     ],
     'rss_feed' => php_sapi_name() !== 'cli' ? 'feed' : 'feed.rss',
 ];

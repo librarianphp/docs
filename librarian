@@ -13,8 +13,9 @@ use Librarian\Provider\RouterServiceProvider;
 use Librarian\Provider\TwigServiceProvider;
 use Minicli\App;
 use Librarian\Provider\ContentServiceProvider;
+use Minicli\Exception\CommandNotFoundException;
 
-$app = new App(load_config());
+$app = new App();
 $app->setSignature('
  _      ____  ____   ____    ____  ____   ____   ____  ____  
 | |    |    ||    \ |    \  /    ||    \ |    | /    ||    \ 
@@ -27,23 +28,17 @@ $app->setSignature('
 Type "./librarian help" for help with available commands.
 ');
 
-$app->addService('content', new ContentServiceProvider());
-$app->addService('twig', new TwigServiceProvider());
-$app->addService('librarian', new LibrarianServiceProvider());
-$app->addService('builder', new StaticBuilder());
-$app->addService('router', new RouterServiceProvider());
-
 $app->librarian->boot();
 
 try {
     $app->runCommand($argv);
 } catch (CommandNotFoundException $notFoundException) {
-    $app->getPrinter()->error("Command Not Found.");
+    $app->error("Command Not Found.");
     return 1;
 } catch (Exception $exception) {
     if ($app->config->debug) {
-        $app->getPrinter()->error("An error occurred:");
-        $app->getPrinter()->error($exception->getMessage());
+        $app->error("An error occurred:");
+        $app->error($exception->getMessage());
     }
     return 1;
 }
