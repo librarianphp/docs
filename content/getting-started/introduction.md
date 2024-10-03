@@ -5,7 +5,7 @@ index: 10
 description: Librarian is a static site generator written in PHP. It uses the same format as DEV.to for markdown files with a front matter and liquid tags for custom functionality.
 ---
 
-Librarian is a static site generator written in PHP on top of [Minicli](https://github.com/minicli/minicli). It uses the same format as DEV.to for markdown files with a front matter and liquid tags for custom functionality.
+Librarian is a static site builder written in PHP on top of [Minicli](https://github.com/minicli/minicli). It uses the same format as DEV.to for markdown files with a front matter and liquid tags for custom functionality.
 The front matter is fluid and doesn't have a fixed spec, meaning you can include any custom fields you want and fetch them from your templates.
 
 Librarian aims to be a simple solution to document open source projects and for blogging. Inspired by Hugo, but written in PHP.
@@ -30,7 +30,7 @@ Librarian can also serve a dynamic website from its `/web` directory, and that w
 
 ## Requirements
 
-- PHP 8.1+: `cli` is enough to generate the static build; for development you can use the built-in PHP web server to get instant previews.
+- PHP 8.2+: `cli` is enough to generate the static build; for development you can use the built-in PHP web server to get instant previews.
 - [Composer](https://getcomposer.org): for installing the PHP dependencies.
 - [NPM](https://docs.npmjs.com/cli/v7): recommended due to Tailwind, but only required if you're modifying templates.
 

@@ -29,9 +29,9 @@ The included about page is located at `content/_p/about.md` in case you want to 
 
 ### Configuring Librarian
 
-The `config.php` file in the root of the application folder contains settings that you'll want to change. Here you can configure things such as the site name and description, the amount of posts per page, as well as social links and whether you want to use a custom index page instead of the default post listing.
+The `librarian.php` file in the `/config` folder contains settings that you'll want to change. Here you can configure things such as the site name and description, the amount of posts per page, as well as social links and whether you want to use a custom index page instead of the default post listing.
 
-To update basic site information, open the `config.php` file on your code editor of choice and look for the "Site Information" section. You can also set up your social links.
+To update basic site information, open the `config/librarian.php` file on your code editor of choice and look for the "Site Information" section. You can also set up your social links.
 
 ```php
 <?php
@@ -67,5 +67,3 @@ return [
 ```
 
 It's worth noting that you can also use environment variables to set up your configuration. The `envconfig` helper function will look for an environment variable with the provided name, using the second argument as default variable in case the env variable is not defined.
-
-Whenever you need to customize configuration found in the `/config` directory, you should add it to your `config.php` file. This will always have precedence over the config files located at `/config`, which contain Librarian's defaults.

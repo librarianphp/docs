@@ -1,18 +1,18 @@
 <div class="column blog-sidebar" id="blog-sidebar">
     <div class="px-4 py-6 mb-2 mt-2">
         <div class="text-center mx-auto">
-            <img class="mx-auto rounded-full" src="https://picsum.photos/seed/128/128">
+            <img class="mx-auto rounded-full" src="https://raw.githubusercontent.com/librarianphp/librarian/main/art/logo.png">
             <h3 class="text-2xl my-2">About</h3>
         </div>
 
         <p class="text-justify px-4 py-2">{{ site_about() }}</p>
     </div>
             <h3 class="text-2xl px-4 py-6 mt-2">Table of Contents</h3>
-            <ul class="shadow-md rounded-md">
+            <ul class="rounded-md">
                 {% for type in content_types() %}
-                    <li><a class="py-2 px-2 bg-violet-600 text-gray-100 font-bold block" href="/{{ type.slug }}">{{ type.title|replace({'_': ' '}) }}</a></li>
+                    <li><a class="py-2 px-2 bg-purple-200 font-bold block" href="/{{ type.slug }}">{{ type.title|replace({'_': ' '}) }}</a></li>
                     <li>
-                        <ul class="divide-y divide-gray-200">
+                        <ul class="border-x border-gray-100">
                             {% for article in table_of_contents(type.slug) %}
                                 <li><a class="py-2 px-2 pl-6 block" href="{{ site_root() }}{{ article.getLink() }}">{{ article.frontMatterGet('title') }}</a></li>
                             {% endfor %}

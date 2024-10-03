@@ -42,33 +42,37 @@
     </script>
 </head>
 
-<body class="bg-gradient-to-br from-gray-900 to-purple-900">
+<body class="">
 
 
-    <div class="container mx-auto text-gray-50 bg-violet-900 border-t-4 border-teal-600">
-        <div class="px-4 py-4">
-            <p class="py-2 float-right">
-                <a href="{{ site_root() }}" title="Home">
-                    <span class="icon is-medium"><i class="fas fas-lg fa-home"></i></span>
-                </a>
+    <div class="bg-gradient-to-r from-white via-purple-100 to-white border-b border-b-gray-200">
+        <div class="container mx-auto">
+            <div class="px-4 py-4">
+                <p class="py-2 float-right">
+                    <a href="{{ site_root() }}" title="Home">
+                        <span class="icon is-medium"><i class="fas fas-lg fa-home"></i></span>
+                    </a>
 
-                {% for title,link in social_links() %}
-                    {% if link %}
-                        <a href="{{ link }}" title="{{ title }}">
-                                <span class="icon">
-                                    <i class="fab fa-{{ title|lower }}"></i>
-                                </span>
-                        </a>
-                    {% endif %}
-                {% endfor %}
+                    {% for title,link in social_links() %}
+                        {% if link %}
+                            <a href="{{ link }}" title="{{ title }}">
+                                    <span class="icon">
+                                        <i class="fab fa-{{ title|lower }}"></i>
+                                    </span>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
 
-                <a href="{{ site_root() }}feed" title="RSS Feed">
-                    <span class="icon is-medium"><i class="fas fas-lg fa-rss"></i></span>
-                </a>
-            </p>
+                    <a href="{{ site_root() }}feed" title="RSS Feed">
+                        <span class="icon is-medium"><i class="fas fas-lg fa-rss"></i></span>
+                    </a>
 
-                <h1 class="text-4xl header"><a href="{{ site_root() }}">{{ site_title() }}</a></h1>
-                <p class="clear-both"></p>
+                </p>
+
+                    <h1 class="text-4xl header float-left"><a href="{{ site_root() }}">{{ site_title() }}</a></h1>
+                    <p class="float-left ml-5 pt-2"><a href="https://packagist.org/packages/librarianphp/librarian"><img src="https://img.shields.io/packagist/v/librarianphp/librarian.svg?style=flat-square" alt="Packagist"></a></p>
+                    <p class="clear-both"></p>
+                </div>
             </div>
         </div>
 
@@ -76,10 +80,10 @@
 <div class="container mx-auto">
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        <div class="shadow-sm bg-gray-100">
+        <div class="">
             {% include '_partials/sidebar.html.twig' %}
         </div>
-        <div class="lg:col-span-3 px-6 py-6 bg-gray-50 shadow-sm">
+        <div class="lg:col-span-3 px-6 py-6">
             {% block content %}
             {% endblock %}
         </div>
